@@ -46,15 +46,15 @@ public class controleFluxoSwitch : MonoBehaviour
         break;
 
         case "B D D ":
-        print( "haduken!");
+        print( "Hadouken!");
         break;
 
         case "B C C ":
-        print( "Shariuken!");
+        print( "Shoryuken!");
         break;
 
         case "E E D D C D ":
-        print( "Katasiseruken!");
+        print( "Tatsumaki Senpukyaku!");
         break;
         
     }
