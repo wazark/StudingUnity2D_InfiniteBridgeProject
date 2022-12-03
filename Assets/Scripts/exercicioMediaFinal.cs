@@ -5,13 +5,17 @@ using UnityEngine;
 public class exercicioMediaFinal : MonoBehaviour
 {
     public string nomeAluno;
+    private string statusAluno;
     public float mediaBimestreA;
     public float mediaBimestreB;
     public float mediaBimestreC;
-    public float mediaBimestreD;
-    private float mediaFinal;
-    private bool isAprovado;
-    private string statusAluno;
+    public float mediaBimestreD;    
+    private float mediaNecessaria = 7;
+    public int frequencia;    
+    private int frequenciaNecessaria= 80;
+    public bool isAprovado;
+    
+    
 
     void Start()
     {
@@ -30,23 +34,31 @@ public class exercicioMediaFinal : MonoBehaviour
     public void calcularMediaFinal()
     {
 
-        mediaFinal=(mediaBimestreA + mediaBimestreB + mediaBimestreC + mediaBimestreD) / 4;
-        if (mediaFinal>=7)
+        float mediaFinal=(mediaBimestreA + mediaBimestreB + mediaBimestreC + mediaBimestreD) / 4;
+
+        if (mediaFinal>=mediaNecessaria && frequencia >= frequenciaNecessaria)
         {
+            statusAluno = "APROVADO";
             isAprovado = true;
-            statusAluno = "APROVADO!";
-            print(nomeAluno);
-            print( mediaFinal);
-            print(statusAluno);
-            
+            print("O Aluno " + nomeAluno + " foi " + statusAluno + " com média final " + mediaFinal + " e frequencia de " + frequencia + "%" );
         }
-        else
+        else if(mediaFinal>=mediaNecessaria && frequencia < frequenciaNecessaria)
         {
+            statusAluno ="REPROVADO POR FATAS";
             isAprovado = false;
-            statusAluno = "REPROVADO!";
-            print(nomeAluno);
-            print( mediaFinal);
-            print(statusAluno);
+            print("O Aluno " + nomeAluno + " foi " + statusAluno + " com média final " + mediaFinal + " e frequencia de " + frequencia + "%" );
+        }
+        else if (mediaFinal<=mediaNecessaria && frequencia >= frequenciaNecessaria)
+        {
+            statusAluno ="REPROVADO POR NOTAS";
+            isAprovado = false;
+            print("O Aluno " + nomeAluno + " foi " + statusAluno + " com média final " + mediaFinal + " e frequencia de " + frequencia + "%" );
+        }
+        else if(mediaFinal<=mediaNecessaria && frequencia <= frequenciaNecessaria)
+        {
+            statusAluno ="REPROVADO POR FALTAS E POR NOTAS";
+            isAprovado = false;
+            print("O Aluno " + nomeAluno + " foi " + statusAluno + " com média final " + mediaFinal + " e frequencia de " + frequencia + "%" );
         }
         
         
