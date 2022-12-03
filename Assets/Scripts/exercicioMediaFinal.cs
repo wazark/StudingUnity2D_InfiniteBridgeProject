@@ -13,7 +13,8 @@ public class exercicioMediaFinal : MonoBehaviour
     private float mediaNecessaria = 7;
     public int frequencia;    
     private int frequenciaNecessaria= 80;
-    public bool isAprovado;
+    private bool isAprovado;
+    public bool isEscolaEstadual;
     
     
 
@@ -33,7 +34,8 @@ public class exercicioMediaFinal : MonoBehaviour
 
     public void calcularMediaFinal()
     {
-
+        if(isEscolaEstadual == false)
+        {
         float mediaFinal=(mediaBimestreA + mediaBimestreB + mediaBimestreC + mediaBimestreD) / 4;
 
         if (mediaFinal>=mediaNecessaria && frequencia >= frequenciaNecessaria)
@@ -60,8 +62,24 @@ public class exercicioMediaFinal : MonoBehaviour
             isAprovado = false;
             print("O Aluno " + nomeAluno + " foi " + statusAluno + " com média final " + mediaFinal + " e frequencia de " + frequencia + "%" );
         }
-        
-        
+        }
+        else
+        {
+           float mediaFinal=(mediaBimestreA + mediaBimestreB + mediaBimestreC + mediaBimestreD) / 4;
+                                 
+            if (mediaFinal <= mediaNecessaria || frequencia <=frequenciaNecessaria)
+            {
+                statusAluno="APROVADO POR SER ESCOLA DO ESTADO E O GOVERNO NÃO DEIXAR NINGUEM REPROVAR";
+                isAprovado=true;
+               print("O Aluno " + nomeAluno + " foi " + statusAluno + " com média final " + mediaFinal + " e frequencia de " + frequencia + "%" ); 
+            }
+            else
+            {
+                statusAluno="APROVADO";
+                isAprovado=true;
+               print("O Aluno " + nomeAluno + " foi " + statusAluno + " com média final " + mediaFinal + " e frequencia de " + frequencia + "%" ); 
+            }
+        }
         
     }
 }
