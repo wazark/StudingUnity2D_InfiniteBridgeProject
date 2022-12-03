@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class controleFluxoSwitch : MonoBehaviour
 {
-    public int diaSemana;
+    public string comandos;
 
     void Start()
     {
@@ -14,39 +14,51 @@ public class controleFluxoSwitch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.LeftShift))
+        if(Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            diasDaSemana();
+            comandos +="E ";
+        }
+        else if(Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            comandos +="D ";
+        }
+        else if(Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            comandos +="C ";
+        }
+        else if(Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            comandos +="B ";
+        }
+
+        if (Input.GetKeyDown(KeyCode.KeypadEnter))
+        {
+            executaComando();
         }
     }
-    public void diasDaSemana()
+ void executaComando()
+{
+    switch (comandos)
     {
-      switch (diaSemana)
-      {
-        default: 
-        print ("Dia da Semana Inválido");
+        
+        default:
+        print("Combo errado");
         break;
-        case 0:
-        print ("Domingo");
+
+        case "B D D ":
+        print( "haduken!");
         break;
-        case 1:
-        print ("Segunda");
+
+        case "B C C ":
+        print( "Shariuken!");
         break;
-        case 2:
-        print ("Terça");
+
+        case "E E D D C D ":
+        print( "Katasiseruken!");
         break;
-        case 3:
-        print ("Quarta");
-        break;
-        case 4:
-        print ("Quinta");
-        break;
-        case 5:
-        print ("Sexta");
-        break;
-        case 6:
-        print ("Sábado");
-        break;
-      }  
+        
     }
+
+    comandos="";
+}  
 }
