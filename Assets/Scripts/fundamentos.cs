@@ -5,11 +5,12 @@ using UnityEngine;
 public class fundamentos : MonoBehaviour
 {
     /*declaramos as variáveis aqui.
-    A ordem que executamos é chamado de Fluxo.
-    as variáveis ficam: tipoInformação    nomeVariável        
-     */
+     A ordem que executamos é chamado de Fluxo.
+     as variáveis ficam: tipoInformação    nomeVariável        
+      */
 
     //Tipos de variáveis:
+
     int inteiro = 100;                // uma variável do tipo int armazena números inteiros, seja negativo ou positivo,
                                       // ela também possui um limite máximo de valor: -2.147.483.648 até 2.147.483.648.
 
@@ -20,8 +21,7 @@ public class fundamentos : MonoBehaviour
 
     string texto = "Hello World 1.0";  // O string armazena qualquer valor alpha numérico, desde que esteja dentro das aspas. 
 
-    // Start is called before the first frame update
-    void Start() // são chamados de métodos ou funções. 
+    void Start()
     {
         
     }
