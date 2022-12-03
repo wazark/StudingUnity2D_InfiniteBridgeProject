@@ -5,43 +5,51 @@ using UnityEngine;
 public class exercicioMediaFinal : MonoBehaviour
 {
     public string nomeAluno;
-    public int mediaBimestreA;
-    public int mediaBimestreB;
-    public int mediaBimestreC;
-    public int mediaBimestreD;
+    public float mediaBimestreA;
+    public float mediaBimestreB;
+    public float mediaBimestreC;
+    public float mediaBimestreD;
     private float mediaFinal;
     private bool isAprovado;
     private string statusAluno;
 
     void Start()
     {
-        calcularMediaFinal();
-
-        if(mediaFinal >= 6)
-        {
-            isAprovado= true;
-            statusAluno= "APROVADO!";
-            print(statusAluno);
-        }
-        else
-        {
-            isAprovado= false;
-            statusAluno="Reprovado!";
-            print(statusAluno);
-        }
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-              
+           if(Input.GetKeyDown(KeyCode.Space))
+           {
+            calcularMediaFinal();
+           }   
     }
 
     public void calcularMediaFinal()
     {
 
         mediaFinal=(mediaBimestreA + mediaBimestreB + mediaBimestreC + mediaBimestreD) / 4;
-        print( mediaFinal);
-
+        if (mediaFinal>=7)
+        {
+            isAprovado = true;
+            statusAluno = "APROVADO!";
+            print(nomeAluno);
+            print( mediaFinal);
+            print(statusAluno);
+            
+        }
+        else
+        {
+            isAprovado = false;
+            statusAluno = "REPROVADO!";
+            print(nomeAluno);
+            print( mediaFinal);
+            print(statusAluno);
+        }
+        
+        
+        
     }
 }
