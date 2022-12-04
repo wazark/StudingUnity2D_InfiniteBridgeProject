@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class funcaoRetorno : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public float val1;
+    public float val2;
+    public float val3;
+    public float val4;
+    public float val5;
     void Start()
     {
         
@@ -15,7 +19,7 @@ public class funcaoRetorno : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.End))
         {
-            print(verificaAprovacao(2));
+            print(calculoTeste(0));
 
         }
     }
@@ -29,5 +33,13 @@ public class funcaoRetorno : MonoBehaviour
         }
 
         return isAprovado;
+    }
+
+    float calculoTeste(float soma)
+    {
+        float equacao=(val1+val2)*val3+(val4/val2)/val5;
+        soma += equacao;
+        // (5+3)*8+(6+3)/7 = (8)*8+ (9)/7= 64+1.28
+        return equacao;
     }
 }
