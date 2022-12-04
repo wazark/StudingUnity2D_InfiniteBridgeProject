@@ -19,12 +19,35 @@ public class leituradoArrayComLoops : MonoBehaviour
 
         */
 
-        // Utilizando o For:
+        /* Utilizando o For:
 
         for (int indice = 0; indice < fundamentoArray.Length; indice++)
         {
             print(fundamentoArray[indice]);
         }
+        */
+
+        //Utilizando o foreach
+        
+        foreach (float F in fundamentoArray)
+        {
+            // ou seja, a lógica escrita aqui vai agir em cada variavel dentro da Array fundamentos.
+
+            print(F);
+
+           if (fundamentoArray.Length > 6)
+           {
+            print("maior que 6");
+           }
+           else
+           {
+            print("menor que 6");
+           }
+            
+
+        }
+
+
 
     }
 
