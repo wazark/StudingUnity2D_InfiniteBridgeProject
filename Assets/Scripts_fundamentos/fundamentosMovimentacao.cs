@@ -27,12 +27,11 @@ public class fundamentosMovimentacao : MonoBehaviour
     {
 
         float horizontal = Input.GetAxisRaw("Horizontal");
-
-        PlayerRigidBody.velocity = new Vector2(horizontal * movVelocity, 0);
-
-
         float vertical = Input.GetAxisRaw("Vertical");
-        PlayerRigidBody.velocity = new Vector2(vertical * movVelocity, 0);
+        PlayerRigidBody.velocity = new Vector2(horizontal * movVelocity, vertical * movVelocity);
+
+
+        
 
 
 
