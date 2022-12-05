@@ -7,7 +7,7 @@ public class fundamentosMovimentacao : MonoBehaviour
     private Rigidbody2D PlayerRigidBody;
     private SpriteRenderer sRender;
     private GameController _GameController;
-    public Animator animatorPlayer;
+    
     
 
 
@@ -18,8 +18,7 @@ public class fundamentosMovimentacao : MonoBehaviour
 
 
         PlayerRigidBody = GetComponent<Rigidbody2D>();
-        sRender = GetComponent<SpriteRenderer>();
-        //animatorPlayer = GetComponent<Animator>();
+        sRender = GetComponent<SpriteRenderer>();      
         
         _GameController=FindObjectOfType(typeof(GameController)) as GameController; // acessa a outra classe e faz a conversão.
     }
@@ -64,11 +63,7 @@ public class fundamentosMovimentacao : MonoBehaviour
 
         transform.position = new Vector3(posX, posY, 0); // define que a nova posição do transform será com base no valor das variáveis criadas anteriormente.
 
-        if(_GameController.barrelDestroyed >= 10)
-        {
-            
-        }
-
+        
     }       
 
 }  
