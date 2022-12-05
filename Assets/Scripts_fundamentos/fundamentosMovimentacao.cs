@@ -27,7 +27,7 @@ public class fundamentosMovimentacao : MonoBehaviour
     void Update()
     {
         movimentation();
-        characterFlip();
+        
     }
 
     void movimentation()
