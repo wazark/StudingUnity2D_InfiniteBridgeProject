@@ -6,12 +6,8 @@ public class fundamentosMovimentacao : MonoBehaviour
 {
     private Rigidbody2D PlayerRigidBody;
     private SpriteRenderer sRender;
+    private GameController _GameController;
     
-    public float movVelocity;
-    public float limitMaxY;                // variaveis limitadoras de posição vertical.
-    public float limitMinY;
-    public float limitMaxX;                // variaveis limitadoras de posição horizontal.
-    public float limitMinX;
 
 
     void Start()
@@ -21,7 +17,9 @@ public class fundamentosMovimentacao : MonoBehaviour
 
 
         PlayerRigidBody = GetComponent<Rigidbody2D>();
-        sRender = GetComponent<SpriteRenderer>();        
+        sRender = GetComponent<SpriteRenderer>();      
+        
+        _GameController=FindObjectOfType(typeof(GameController)) as GameController; // acessa a outra classe e faz a conversão.
     }
         
     void Update()
@@ -35,30 +33,30 @@ public class fundamentosMovimentacao : MonoBehaviour
         
         float horizontal = Input.GetAxisRaw("Horizontal"); // atribuimos às variaveis horizontal e vertical os valores pegos no AxisRaw.
         float vertical = Input.GetAxisRaw("Vertical");
-        PlayerRigidBody.velocity = new Vector2(horizontal * movVelocity, vertical * movVelocity); // o vetor do transform do objeto irá mudar conforme altera as variaveis antes criadas.
+        PlayerRigidBody.velocity = new Vector2(horizontal * _GameController.movVelocity, vertical * _GameController.movVelocity); // o vetor do transform do objeto irá mudar conforme altera as variaveis antes criadas.
 
         float posY = transform.position.y;    // criamos 2 variáveis as quais vão herdar o valor atual da posição do transform X e Y
         float posX = transform.position.x;
 
         // Limit of Movimentation X
-        if (transform.position.x > limitMaxX)
+        if (transform.position.x > _GameController.limitMaxX)
         {
-            posX = limitMaxX;
+            posX = _GameController.limitMaxX;
         }
-        else if (transform.position.x < limitMinX)
+        else if (transform.position.x < _GameController.limitMinX)
         {
-            posX = limitMinX;
+            posX = _GameController.limitMinX;
         }
 
         // Limit of Movimentation Y
-        if (transform.position.y > limitMaxY)       // fazemos um check para verificar se a posição atual é maior que o limite pré definido. Caso seja, a variavél  de posição muda para o valor limite. 
+        if (transform.position.y > _GameController.limitMaxY)       // fazemos um check para verificar se a posição atual é maior que o limite pré definido. Caso seja, a variavél  de posição muda para o valor limite. 
         {
-            posY = limitMaxY;
+            posY = _GameController.limitMaxY;
 
         }
-        else if (transform.position.y < limitMinY)
+        else if (transform.position.y < _GameController.limitMinY)
         {
-            posY = limitMinY;
+            posY = _GameController.limitMinY;
 
         }
 

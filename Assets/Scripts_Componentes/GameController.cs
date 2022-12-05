@@ -4,7 +4,20 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [Header("Player Settings")]
+
+    public float movVelocity;
+    public float limitMaxY;                // variaveis limitadoras de posição vertical.
+    public float limitMinY;
+    public float limitMaxX;                // variaveis limitadoras de posição horizontal.
+    public float limitMinX;
+
+    [Header("Objet Settings")]
+
+    public float objectVelocity;
+    public float distanceToDestroy;
+
+
     void Start()
     {
         
