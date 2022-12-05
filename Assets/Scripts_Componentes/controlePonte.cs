@@ -7,6 +7,8 @@ public class controlePonte : MonoBehaviour
     private GameController _gameController;
     private Rigidbody2D ponteRB;
 
+    private bool isSpawned;
+
     void Start()
     {
         
@@ -21,8 +23,26 @@ public class controlePonte : MonoBehaviour
     void Update()
     {
         objectDestroy();
+        objectSpawn();
 
     }
+
+    void objectSpawn()
+    {
+        if(isSpawned == false) 
+        {
+            if(transform.position.x <= 0)
+            {
+                isSpawned= true;
+                GameObject temp = Instantiate(_gameController.PontePrefab);
+                float posX = transform.position.x + _gameController.bridgeSize;
+                float posY = transform.position.y;
+                temp.transform.position = new Vector3(posX,posY,0);
+            }
+        }
+
+    }
+
 
     void objectDestroy()
     {
