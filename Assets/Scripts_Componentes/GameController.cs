@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
+    private PlayerController _playerController;
+
+
     [Header("Player Settings")]
 
     public float movVelocity;
@@ -11,6 +14,7 @@ public class GameController : MonoBehaviour
     public float limitMinY;
     public float limitMaxX;                
     public float limitMinX;
+    public int Score;
 
     [Header("Bridge Settings")]
 
@@ -33,15 +37,25 @@ public class GameController : MonoBehaviour
     public int barrelOrderDow;
     public int barrelDestroyed;
 
+    [Header("Global Settings")]
+
+    public float posXPlayer;
+    public int barrelWave = 1;
+
     void Start()
     {
         StartCoroutine("spawnBarrel");
+        _playerController = FindObjectOfType(typeof(PlayerController)) as PlayerController;
     }
 
     
     void Update()
     {
         
+    }
+    private void LateUpdate()
+    {
+        posXPlayer= _playerController.transform.position.x;
     }
 
     IEnumerator spawnBarrel() // corrotina - Função que pode ser parada durante a sua propria execução e não funciona necessariamente pela atualização do update, ela possui um controle próprio.
@@ -71,5 +85,16 @@ public class GameController : MonoBehaviour
         temp.GetComponent<SpriteRenderer>().sortingOrder = order;
         StartCoroutine("spawnBarrel"); // restart a coroutine
 
+    }
+
+    public void Scored( int currentScore)
+    {
+        Score += currentScore * barrelWave;
+    }
+
+    public void barrelWaveSystem(int currentWave)
+    {
+        barrelWave += currentWave;
+        
     }
 }

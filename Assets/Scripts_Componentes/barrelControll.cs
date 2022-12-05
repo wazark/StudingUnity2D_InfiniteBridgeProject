@@ -11,6 +11,7 @@ public class barrelControll : MonoBehaviour
     private int barrelDestroyed;
     private float distanceToDestroy = -3.629f;
     private float barrelVelocity;
+    private bool scored;
 
 
     void Start()
@@ -19,12 +20,13 @@ public class barrelControll : MonoBehaviour
 
         barrelRB= GetComponent<Rigidbody2D>();
         barrelVelocity = _gameController.barrelVelocity;
-        print(barrelVelocity);
+        
         if(_gameController.barrelDestroyed >= 10)
         {
             _gameController.barrelVelocity += -0.3f;
             _gameController.barrelDestroyed = 0;
             _gameController.cooldowSpawn += -0.03f;
+            _gameController.barrelWaveSystem(1);
         }
         barrelRB.velocity = new Vector2(_gameController.barrelVelocity, 0);
     }
@@ -35,15 +37,21 @@ public class barrelControll : MonoBehaviour
         barrelDestroy();        
     }
 
-    
+    private void LateUpdate()
+    {
+        if(scored == false && transform.position.x < _gameController.posXPlayer) 
+        {            
+         scored= true;
+            _gameController.Scored(10);
+        }
+    }
 
     void barrelDestroy()
     {
         if (transform.position.x <= distanceToDestroy)
         {
-            Destroy(gameObject);            
-            _gameController.barrelDestroyed += +1;            
-            
+            Destroy(gameObject);
+            _gameController.barrelDestroyed += 1;
         }
     }
 }

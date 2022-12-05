@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class fundamentosMovimentacao : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D PlayerRigidBody;
     private SpriteRenderer sRender;
