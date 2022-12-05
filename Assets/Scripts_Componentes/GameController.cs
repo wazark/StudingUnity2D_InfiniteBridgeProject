@@ -7,9 +7,9 @@ public class GameController : MonoBehaviour
     [Header("Player Settings")]
 
     public float movVelocity;
-    public float limitMaxY;                // variaveis limitadoras de posição vertical.
+    public float limitMaxY;                
     public float limitMinY;
-    public float limitMaxX;                // variaveis limitadoras de posição horizontal.
+    public float limitMaxX;                
     public float limitMinX;
 
     [Header("Bridge Settings")]
@@ -21,22 +21,54 @@ public class GameController : MonoBehaviour
 
     [Header("Barrel Settings")]
 
-    public float posYTop;
-    public float posYCenter;
+    public GameObject barrelPrefab;
+
+    public float posYTop;    
     public float posYDown;
 
-    public int barrelOrderTop;
-    public int barrelOrderCenter;
+    public float barrelVelocity;
+    public float cooldowSpawn;
+
+    public int barrelOrderTop;    
     public int barrelOrderDow;
 
     void Start()
     {
-        
+        StartCoroutine("spawnBarrel");
     }
 
     
     void Update()
     {
         
+    }
+
+    IEnumerator spawnBarrel() // corrotina - Função que pode ser parada durante a sua propria execução e não funciona necessariamente pela atualização do update, ela possui um controle próprio.
+    {
+        yield return new WaitForSeconds(cooldowSpawn); //cooldown
+        int rand = Random.Range(0, 100);
+        int order = 0;
+        float posY = 0;
+
+        if( rand < 50)
+        {
+            posY = posYTop;
+            order = barrelOrderTop;
+            
+        }
+        else 
+        {
+            posY = posYDown;
+            order = barrelOrderDow;                                 
+            
+        }
+
+
+
+        GameObject temp = Instantiate(barrelPrefab); // spawn
+        temp.transform.position = new Vector3(temp.transform.position.x, posY, 0);
+        temp.GetComponent<SpriteRenderer>().sortingOrder = order;
+        StartCoroutine("spawnBarrel"); // restart a coroutine
+
     }
 }
