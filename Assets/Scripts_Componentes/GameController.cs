@@ -31,6 +31,7 @@ public class GameController : MonoBehaviour
 
     public int barrelOrderTop;    
     public int barrelOrderDow;
+    public int barrelDestroyed;
 
     void Start()
     {

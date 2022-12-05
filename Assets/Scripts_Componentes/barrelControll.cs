@@ -9,6 +9,8 @@ public class barrelControll : MonoBehaviour
 
     private bool isSpawned;
     private int barrelDestroyed;
+    private float distanceToDestroy = -3.629f;
+    private float barrelVelocity;
 
 
     void Start()
@@ -16,30 +18,32 @@ public class barrelControll : MonoBehaviour
         _gameController = FindObjectOfType(typeof(GameController)) as GameController;
 
         barrelRB= GetComponent<Rigidbody2D>();
-
+        barrelVelocity = _gameController.barrelVelocity;
+        print(barrelVelocity);
+        if(_gameController.barrelDestroyed >= 10)
+        {
+            _gameController.barrelVelocity += -0.3f;
+            _gameController.barrelDestroyed = 0;
+            _gameController.cooldowSpawn += -0.03f;
+        }
         barrelRB.velocity = new Vector2(_gameController.barrelVelocity, 0);
     }
 
     
     void Update()
     {        
-        barrelDestroy();
-        if(barrelDestroyed >= 10)
-        {
-            barrelDestroyed= 0;
-            barrelRB.velocity = new Vector2(_gameController.barrelVelocity + -1.0f, 0);
-            print("aumentou as velocidade");
-        }
+        barrelDestroy();        
     }
 
     
 
     void barrelDestroy()
     {
-        if (transform.position.x <= _gameController.distanceToDestroy)
+        if (transform.position.x <= distanceToDestroy)
         {
-            Destroy(gameObject);
-            barrelDestroyed++;
+            Destroy(gameObject);            
+            _gameController.barrelDestroyed += +1;            
+            
         }
     }
 }

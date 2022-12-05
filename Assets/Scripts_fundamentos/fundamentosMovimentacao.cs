@@ -7,6 +7,7 @@ public class fundamentosMovimentacao : MonoBehaviour
     private Rigidbody2D PlayerRigidBody;
     private SpriteRenderer sRender;
     private GameController _GameController;
+    public Animator animatorPlayer;
     
 
 
@@ -17,7 +18,8 @@ public class fundamentosMovimentacao : MonoBehaviour
 
 
         PlayerRigidBody = GetComponent<Rigidbody2D>();
-        sRender = GetComponent<SpriteRenderer>();      
+        sRender = GetComponent<SpriteRenderer>();
+        //animatorPlayer = GetComponent<Animator>();
         
         _GameController=FindObjectOfType(typeof(GameController)) as GameController; // acessa a outra classe e faz a conversão.
     }
@@ -62,21 +64,12 @@ public class fundamentosMovimentacao : MonoBehaviour
 
         transform.position = new Vector3(posX, posY, 0); // define que a nova posição do transform será com base no valor das variáveis criadas anteriormente.
 
-    }
-
-    void characterFlip()
-    {
-        float horizontal = Input.GetAxisRaw("Horizontal");
-
-        if(horizontal < 0)
+        if(_GameController.barrelDestroyed >= 10)
         {
-            sRender.flipX = true;
+            
         }
-        else
-        {
-            sRender.flipX = false;
-        }
-    }
+
+    }       
 
 }  
     
