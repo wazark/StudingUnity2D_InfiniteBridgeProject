@@ -64,8 +64,13 @@ public class PlayerController : MonoBehaviour
         transform.position = new Vector3(posX, posY, 0); // define que a nova posição do transform será com base no valor das variáveis criadas anteriormente.
 
         
-    }       
+    }
 
+    void OnTriggerEnter2D()
+    {        
+        Debug.LogError("GameOver");
+        
+    }
 }  
     
     

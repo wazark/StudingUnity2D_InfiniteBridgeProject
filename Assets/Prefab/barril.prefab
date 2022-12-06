@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2598542812966908243}
   - component: {fileID: 2598542812966908245}
   - component: {fileID: 8849197807213828802}
+  - component: {fileID: 438207901}
   m_Layer: 0
   m_Name: barril
   m_TagString: Untagged
@@ -119,3 +120,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9454bc3e48a05d944b3ff39310315b42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!61 &438207901
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2598542812966908242}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.00414443, y: -0.06552684}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.64, y: 0.64}
+    newSize: {x: 0.64, y: 0.64}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.2860427, y: 0.18683004}
+  m_EdgeRadius: 0
