@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter2D()
     {
-        _GameController.changeScene("mapgameover");
+        _GameController.changeScene("map_gameover");
         
     }
 }  
