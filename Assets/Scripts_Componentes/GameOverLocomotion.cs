@@ -26,7 +26,8 @@ public class GameOverLocomotion : MonoBehaviour
 
         if (gameObject.transform.position.y >= newPosition)
         {
-            rBody.velocity= new Vector2 (0,0); 
+            rBody.velocity= new Vector2 (0,0);
+            _gameOverEffect.isEnable= true;
         }
         else
         {            
@@ -39,7 +40,7 @@ public class GameOverLocomotion : MonoBehaviour
     {
         yield return new WaitForSeconds(_gameOverEffect.cooldownToScale);
 
-        if (this.transform.localScale == _gameOverEffect.newScale)
+        if (this.transform.localScale == _gameOverEffect.imgNewScale)
         {
             rBody.velocity = new Vector2(0, velocity);  
         }

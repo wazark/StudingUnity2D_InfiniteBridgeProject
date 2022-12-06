@@ -12,32 +12,42 @@ public class GameOverEffect : MonoBehaviour
 
     [Header("Objects")]
     public Canvas canvasImg;
+    public Canvas canvasBtn;
     public Image frontImage;
     public Image shadowImage;
+    public Button btnTitle;
+    public Button btnResetGame;
+    public Button btnQuitGame;
     private Rigidbody2D rBodyFront;
     private Rigidbody2D rBodyShadow;
 
     [Header("Vectors")]
-    public Vector3 defaultScale;
-    public Vector3 decrementScale;
-    public Vector3 newScale;    
+    public Vector3 imgDefaultScale;
+    public Vector3 imgDecrementScale;
+    public Vector3 imgNewScale;
+
+    [Header("Buttons")]
+    public bool isEnable;
+   
+    public Vector3 btnIncrementScale;
+    public Vector3 btnNewScale;
 
     void Start()
     {
 
-        StartCoroutine("gameOverCooldown");        
+        StartCoroutine("gameOverCooldown");
+        //StartCoroutine("bntEnableAndScaling");
 
-        canvasImg.enabled = false;
+        
         rBodyFront = GetComponent<Rigidbody2D>();
         rBodyShadow = GetComponent<Rigidbody2D>();
 
-    }
+        canvasBtn.enabled = false; 
+        canvasImg.enabled = false;
 
-    
-    void Update()
-    {
-        
+
     }
+    
     IEnumerator gameOverCooldown()
     {
         yield return new WaitForSeconds(cooldownToShow);
@@ -55,14 +65,14 @@ public class GameOverEffect : MonoBehaviour
     {
         yield return new WaitForSeconds(cooldownToScale);
 
-        if (frontImage.rectTransform.localScale != newScale  && shadowImage.rectTransform.localScale != newScale)
+        if (frontImage.rectTransform.localScale != imgNewScale  && shadowImage.rectTransform.localScale != imgNewScale)
         {
-            frontImage.rectTransform.localScale += decrementScale;
-            shadowImage.rectTransform.localScale += decrementScale;
+            frontImage.rectTransform.localScale += imgDecrementScale;
+            shadowImage.rectTransform.localScale += imgDecrementScale;
         }
 
         StartCoroutine("gameOverScale");
     }
        
-    
+   
 }
