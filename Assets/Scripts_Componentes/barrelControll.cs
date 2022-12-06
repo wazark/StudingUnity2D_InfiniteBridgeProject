@@ -9,7 +9,7 @@ public class barrelControll : MonoBehaviour
 
     private bool isSpawned;
     private int barrelDestroyed;
-    private float distanceToDestroy = -3.629f;
+    
     private float barrelVelocity;
     private bool scored;
 
@@ -48,7 +48,7 @@ public class barrelControll : MonoBehaviour
 
     void barrelDestroy()
     {
-        if (transform.position.x <= distanceToDestroy)
+        if (transform.position.x <= _gameController.barrelDistanceToDestroy)
         {
             Destroy(gameObject);
             _gameController.barrelDestroyed += 1;

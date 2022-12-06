@@ -30,12 +30,11 @@ public class GameController : MonoBehaviour
 
     public float posYTop;    
     public float posYDown;
-
     public float barrelVelocity;
     public float cooldowSpawn;
-
+    public float barrelDistanceToDestroy;
     public int barrelOrderTop;    
-    public int barrelOrderDow;
+    public int barrelOrderDown;
     public int barrelDestroyed;
 
     [Header("Global Settings")]
@@ -75,7 +74,7 @@ public class GameController : MonoBehaviour
         else 
         {
             posY = posYDown;
-            order = barrelOrderDow;                                 
+            order = barrelOrderDown;                                 
             
         }
 
