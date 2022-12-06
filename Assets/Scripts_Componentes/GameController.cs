@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -96,5 +97,10 @@ public class GameController : MonoBehaviour
     {
         barrelWave += currentWave;
         
+    }
+    public void changeScene(string destinationScene)
+    {
+
+        SceneManager.LoadScene(destinationScene);                    // faz o load de uma nova cena sem tela de loading (recomendado quando a cena é pequena e não tem risco de carregamento longo).
     }
 }

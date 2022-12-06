@@ -67,8 +67,8 @@ public class PlayerController : MonoBehaviour
     }
 
     void OnTriggerEnter2D()
-    {        
-        Debug.LogError("GameOver");
+    {
+        _GameController.changeScene("map_gameover");
         
     }
 }  
