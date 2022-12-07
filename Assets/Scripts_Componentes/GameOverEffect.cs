@@ -6,6 +6,10 @@ using UnityEngine.UI;
 
 public class GameOverEffect : MonoBehaviour
 {
+
+    private GameController _gameController;
+    public int scoreSaved;
+
     [Header("Cooldowns")]
     public float cooldownToShow;
     public float cooldownToScale;
@@ -32,11 +36,14 @@ public class GameOverEffect : MonoBehaviour
     public Vector3 btnIncrementScale;
     public Vector3 btnNewScale;
 
+    [Header("Buttons")]
+    public Text textScore;
+
     void Start()
     {
 
         StartCoroutine("gameOverCooldown");
-        //StartCoroutine("bntEnableAndScaling");
+        score();
 
         
         rBodyFront = GetComponent<Rigidbody2D>();
@@ -45,7 +52,7 @@ public class GameOverEffect : MonoBehaviour
         canvasBtn.enabled = false; 
         canvasImg.enabled = false;
 
-
+       _gameController=FindObjectOfType(typeof(GameController)) as GameController;
     }
     
     IEnumerator gameOverCooldown()
@@ -74,5 +81,9 @@ public class GameOverEffect : MonoBehaviour
         StartCoroutine("gameOverScale");
     }
        
-   
+   void score()
+    {
+        textScore.text= scoreSaved.ToString();
+        
+    }
 }

@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour
 {
     private PlayerController _playerController;
+    private GameOverEffect _gameOverEffects;
 
 
     [Header("Player Settings")]
@@ -48,6 +49,7 @@ public class GameController : MonoBehaviour
     {
         StartCoroutine("spawnBarrel");
         _playerController = FindObjectOfType(typeof(PlayerController)) as PlayerController;
+        _gameOverEffects = FindObjectOfType(typeof(GameOverEffect)) as GameOverEffect;
     }
 
     
