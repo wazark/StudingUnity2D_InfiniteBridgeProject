@@ -886,7 +886,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 2500f85bc6747d84da82e1587fffebfc, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1243,8 +1243,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
+  m_Volume: 0.1
+  m_Pitch: 1.35
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -1719,6 +1719,8 @@ MonoBehaviour:
   barrelOrderTop: 2
   barrelOrderDown: 4
   barrelDestroyed: 0
+  sfxSource: {fileID: 1401758611}
+  sfxPoints: {fileID: 8300000, guid: 83073a8a47bd54548acbc9339aa51636, type: 3}
   posXPlayer: 0
   barrelWave: 1
   txtScore: {fileID: 580154389}
