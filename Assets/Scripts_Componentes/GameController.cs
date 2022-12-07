@@ -39,6 +39,10 @@ public class GameController : MonoBehaviour
     public int barrelOrderDown;
     public int barrelDestroyed;
 
+    [Header("SFX Settings")]
+    public AudioSource sfxSource;
+    public AudioClip sfxPoints;
+
     [Header("Global Settings")]
 
     public float posXPlayer;
@@ -95,6 +99,8 @@ public class GameController : MonoBehaviour
     {
         Score += currentScore * barrelWave;
         txtScore.text = Score.ToString();
+
+        sfxSource.PlayOneShot(sfxPoints);
     }
 
     public void barrelWaveSystem(int currentWave)
