@@ -276,7 +276,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 10194583}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 928853399}
+        m_TargetAssemblyTypeName: BtnComandos, Assembly-CSharp
+        m_MethodName: goTo
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: map_title
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &10194586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1055,6 +1067,7 @@ GameObject:
   m_Component:
   - component: {fileID: 928853398}
   - component: {fileID: 928853397}
+  - component: {fileID: 928853399}
   m_Layer: 0
   m_Name: GameOver_Effect
   m_TagString: Untagged
@@ -1074,7 +1087,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a87c9ced3de4b247a25a291b32c67e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldownToShow: 2
+  cooldownToShow: 0.3
   cooldownToScale: 0.03
   canvasImg: {fileID: 655975428}
   canvasBtn: {fileID: 664193997}
@@ -1104,6 +1117,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &928853399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 928853396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26898cc44d3b846449e77abc057d8233, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &993774992
 GameObject:
   m_ObjectHideFlags: 0
@@ -1167,7 +1192,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 993774994}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 928853399}
+        m_TargetAssemblyTypeName: BtnComandos, Assembly-CSharp
+        m_MethodName: quitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &993774994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1478,7 +1515,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1073842906}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 928853399}
+        m_TargetAssemblyTypeName: BtnComandos, Assembly-CSharp
+        m_MethodName: goTo
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: map_01
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1073842909
 MonoBehaviour:
   m_ObjectHideFlags: 0

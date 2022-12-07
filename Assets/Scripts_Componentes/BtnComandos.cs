@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Comandos : MonoBehaviour
+public class BtnComandos : MonoBehaviour
 {
    
    public void goTo(string scene)

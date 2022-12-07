@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
@@ -41,6 +42,7 @@ public class GameController : MonoBehaviour
 
     public float posXPlayer;
     public int barrelWave = 1;
+    public Text txtScore;
 
     void Start()
     {
@@ -90,6 +92,7 @@ public class GameController : MonoBehaviour
     public void Scored( int currentScore)
     {
         Score += currentScore * barrelWave;
+        txtScore.text = Score.ToString();
     }
 
     public void barrelWaveSystem(int currentWave)
